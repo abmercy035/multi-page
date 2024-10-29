@@ -48,6 +48,7 @@
       --neutral-light-gray: hsl(229, 24%, 87%);
       --neutral-magnolia: hsl(217, 100%, 97%);
       --alabaster: hsl(231, 100%, 99%);
+      --white: hsl(0, 0%, 100%);
     }
 
     * {
@@ -67,15 +68,13 @@
     }
 
     .form-wrapper {
-      background-color: var(--alabaster);
+      background-color: var(--white);
       width: 88vw;
       padding: 15px;
       border: 2px;
       display: flex;
-      gap: 50px;
-      justify-content: center;
       align-items: center;
-      max-width: 1440px;
+      max-width: 1200px;
       border-radius: 10px;
       height: 70vh;
       box-shadow: 0px 25px 50px -12px var(--neutral-light-gray);
@@ -90,70 +89,262 @@
       /* width: calc(274px); */
       min-width: 274px;
       border-radius: 10px;
+
+      .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 40px;
+
+        .sidebar-items {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          cursor: pointer;
+
+          .item-step-number {
+            color: var(--neutral-light-gray);
+            border: 2px solid var(--primary-pastel-blue);
+            border-radius: 50%;
+            width: 33px;
+            height: 33px;
+            font-weight: 700;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .item-step {
+            display: flex;
+            flex-direction: column;
+
+            .item-step-name {
+              color: var(--neutral-light-gray);
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 20px;
+            }
+
+            .item-step-description {
+              color: var(--neutral-magnolia);
+              font-size: 15px;
+              font-weight: 700;
+              text-transform: uppercase;
+              line-height: 20px;
+            }
+
+          }
+
+        }
+
+      }
+
+      .sidebar-items.active .item-step-number {
+        color: var(--primary-marine-blue);
+        background: var(--primary-pastel-blue);
+        border: none;
+      }
     }
 
-    .sidebar-content {
+    .form-container {
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 32px;
-      padding: 40px;
-    }
-
-    .sidebar-items {
-      display: flex;
       align-items: center;
-      gap: 20px;
-      cursor: pointer;
+      justify-content: space-between;
+      padding: 40px 10px 10px;
+
+      /* max-width: 600px; */
+      .form-container-body {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 700px;
+        height: 100%;
+      }
+
+      .form-container-body .forms {
+        display: flex;
+      }
+
+      .form-container-body .forms {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        gap: 30px;
+
+        .form-header {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .form-header-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-marine-blue);
+          }
+
+          .form-header-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--neutral-cool-gray);
+          }
+        }
+
+        .form-body {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          height: 100%;
+
+          .form-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .form-label {
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--primary-marine-blue);
+            }
+
+            .form-input {
+              border: 1px solid var(--neutral-light-gray);
+              border-radius: 5px;
+              padding: 10px;
+              font-size: 16px;
+              font-weight: 700;
+              text-transform: capitalize;
+              color: var(--primary-marine-blue);
+            }
+
+            .form-input:hover {
+              border: 2px solid var(--primary-marine-blue);
+            }
+
+            .form-input::placeholder {
+              font-weight: 500;
+              color: var(--neutral-cool-gray);
+            }
+          }
+        }
+      }
+
+      .form-container-footer {
+        width: 90%;
+        max-width: 700px;
+        display: flex;
+        justify-content: space-between;
+
+        .form-footer-buttons {
+          padding: 15px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          color: var(--neutral-cool-gray);
+        }
+
+        .form-footer-buttons.disabled {
+          cursor: not-allowed;
+        }
+
+        .form-footer-buttons:hover {
+          color: var(--primary-marine-blue);
+        }
+
+        .form-footer-buttons#next-button {
+          background-color: var(--primary-marine-blue);
+          color: var(--alabaster);
+          margin-left: auto;
+        }
+
+        .form-footer-buttons#next-button:hover {
+          opacity: .9;
+        }
+      }
     }
 
-    .item-step {
-      display: flex;
-      flex-direction: column;
+    .hidden {
+      display: none !important;
     }
 
-    .item-step-name {
-      color: var(--neutral-light-gray);
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 20px;
-    }
+    @media screen and (max-width: 675px) {
+      .form-wrapper {
+        padding: 0;
+        height: 100%;
+        flex-direction: column;
+        position: relative;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+      }
 
-    .item-step-description {
-      color: var(--neutral-magnolia);
-      font-size: 15px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 20px;
-    }
+      .sidebar {
+        width: 100%;
+        height: 30%;
+        min-height: 250px;
+        border-radius: 0;
+        display: flex;
+        position: fixed;
+        background-image: url("./assets/images/bg-sidebar-mobile.svg");
+        justify-content: center;
 
-    .item-step-number {
-      color: var(--neutral-light-gray);
-      border: 1px solid var(--primary-pastel-blue);
-      border-radius: 50%;
-      width: 33px;
-      height: 33px;
-      font-weight: 700;
-      padding: 5px 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .sidebar-content {
+          flex-direction: row;
+          padding: 10px;
+          height: 100px;
+          margin-top: 8vh;
 
-    .sidebar-items.active .item-step-number {
-      color: hsl(213, 96%, 18%);
-      color: var(--primary-marine-blue);
-      background: var(--primary-pastel-blue);
-    }
+          .sidebar-items {
+            .item-step-number {
+              border-color: var(--white);
+              width: 45px;
+              height: 45px;
+              font-weight: bold;
+            }
 
-    .item-step-number-active {
-      color: hsl(213, 96%, 18%);
+            .item-step {
+              display: none;
+            }
+
+          }
+
+        }
+
+        .sidebar-items.active .item-step-number {
+          background: var(--primary-light-blue);
+        }
+      }
+
+      .form-container {
+        border-radius: 0;
+        gap: 10px;
+
+        .form-container-body {
+          width: 100%;
+          height: max-content;
+          min-height: max-content;
+          overflow-y: auto;
+          padding: 30px;
+          z-index: 1;
+          margin-top: 15vh;
+          border-radius: 0;
+          background-color: var(--white);
+          box-shadow: 0px 25px 50px -12px var(--neutral-light-gray);
+          border-radius: 10px;
+        }
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="form-wrapper">
-    <!-- Sidebar start -->
     <aside class="sidebar">
       <div class="sidebar-content">
         <div class="sidebar-items active">
@@ -210,110 +401,169 @@
         </div>
       </div>
     </aside>
+    <div class="form-container">
+      <div class="form-container-body">
+        <div class="forms" id="form-1">
+          <div class="form-header">
+            <div class="form-header-title">
+              Personal info
+            </div>
+            <div class="form-header-description">
+              Please provide your name, email address, and phone number.
+            </div>
+          </div>
+          <div class="form-body">
+            <div class="form-input-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-input" id="name" placeholder="e.g. Stephen King">
+            </div>
+            <div class="form-input-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="text" class="form-input" id="email" placeholder="e.g. stephenking@lorem.com">
+            </div>
+            <div class="form-input-group">
+              <label for="mobile" class="form-label">Phone Number</label>
+              <input type="text" class="form-input" id="mobile" placeholder="e.g. +1 234 567 890">
+            </div>
+          </div>
+        </div>
+        <div class="forms hidden" id="form-2">
 
+          <!-- Step 2 start -->
 
-    Step 2
-    Select plan
+          Select your plan
+          You have the option of monthly or yearly billing.
 
-    Step 3
-    Add-ons
+          Arcade
+          $9/mo
 
-    Step 4
-    Summary
+          Advanced
+          $12/mo
 
-    <!-- Sidebar end -->
+          Pro
+          $15/mo
 
-    <!-- Step 1 start -->
+          Monthly
+          Yearly
 
-    Personal info
-    Please provide your name, email address, and phone number.
+          Go Back
+          Next Step
 
-    Name
-    e.g. Stephen King
+          <!-- Step 2 end -->
 
-    Email Address
-    e.g. stephenking@lorem.com
+          <!-- Step 3 start -->
 
-    Phone Number
-    e.g. +1 234 567 890
+          Pick add-ons
+          Add-ons help enhance your gaming experience.
 
-    Next Step
+          Online service
+          Access to multiplayer games
+          +$1/mo
 
-    <!-- Step 1 end -->
+          Larger storage
+          Extra 1TB of cloud save
+          +$2/mo
 
-    <!-- Step 2 start -->
+          Customizable Profile
+          Custom theme on your profile
+          +$2/mo
 
-    Select your plan
-    You have the option of monthly or yearly billing.
+          Go Back
+          Next Step
 
-    Arcade
-    $9/mo
+          <!-- Step 3 end -->
 
-    Advanced
-    $12/mo
+          <!-- Step 4 start -->
 
-    Pro
-    $15/mo
+          Finishing up
+          Double-check everything looks OK before confirming.
 
-    Monthly
-    Yearly
+          <!-- Dynamically add subscription and add-on selections here -->
 
-    Go Back
-    Next Step
+          Total (per month/year)
 
-    <!-- Step 2 end -->
+          Go Back
+          Confirm
 
-    <!-- Step 3 start -->
+          <!-- Step 4 end -->
 
-    Pick add-ons
-    Add-ons help enhance your gaming experience.
+          <!-- Step 5 start -->
 
-    Online service
-    Access to multiplayer games
-    +$1/mo
+          Thank you!
 
-    Larger storage
-    Extra 1TB of cloud save
-    +$2/mo
+          Thanks for confirming your subscription! We hope you have fun
+          using our platform. If you ever need support, please feel free
+          to email us at support@loremgaming.com.
 
-    Customizable Profile
-    Custom theme on your profile
-    +$2/mo
+          <!-- Step 5 end -->
+        </div>
+        <div class="forms hidden" id="form-3"></div>
+        <div class="forms hidden" id="form-4"></div>
+      </div>
+      <div class="form-container-footer">
+        <div class="form-footer-buttons" id="previous-button">Go Back</div>
+        <div class="form-footer-buttons" id="next-button"> Next Step
+        </div>
+      </div>
 
-    Go Back
-    Next Step
-
-    <!-- Step 3 end -->
-
-    <!-- Step 4 start -->
-
-    Finishing up
-    Double-check everything looks OK before confirming.
-
-    <!-- Dynamically add subscription and add-on selections here -->
-
-    Total (per month/year)
-
-    Go Back
-    Confirm
-
-    <!-- Step 4 end -->
-
-    <!-- Step 5 start -->
-
-    Thank you!
-
-    Thanks for confirming your subscription! We hope you have fun
-    using our platform. If you ever need support, please feel free
-    to email us at support@loremgaming.com.
-
-    <!-- Step 5 end -->
-
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
     </div>
   </div>
+  <script defer async>
+    var currentForm = 0;
+    const sidebarItems = document.querySelectorAll(".sidebar-items")
+    const nextFormButton = document.getElementById("next-button")
+    const previousFormButton = document.getElementById("previous-button")
+    if (currentForm < 1) previousFormButton.style.display = "none"
+    const switchForms = () => {
+      if (currentForm < 1) previousFormButton.style.display = "none"
+      else previousFormButton.style.display = "block"
+      console.log(sidebarItems)
+      sidebarItems.forEach((item, index) => {
+        if (index === currentForm) {
+          item.classList.add("active")
+        } else {
+          item.classList.remove("active")
+        }
+      })
+      switch (currentForm) {
+        case 0:
+          document.getElementById("form-1").classList.remove("hidden")
+          document.getElementById("form-2").classList.add("hidden")
+          document.getElementById("form-3").classList.add("hidden")
+          document.getElementById("form-4").classList.add("hidden")
+          break;
+        case 1:
+          document.getElementById("form-1").classList.add("hidden")
+          document.getElementById("form-2").classList.remove("hidden")
+          document.getElementById("form-3").classList.add("hidden")
+          document.getElementById("form-4").classList.add("hidden")
+          break;
+        case 2:
+          document.getElementById("form-1").classList.add("hidden")
+          document.getElementById("form-2").classList.add("hidden")
+          document.getElementById("form-3").classList.remove("hidden")
+          document.getElementById("form-4").classList.add("hidden")
+          break;
+        case 3:
+          document.getElementById("form-1").classList.add("hidden")
+          document.getElementById("form-2").classList.add("hidden")
+          document.getElementById("form-3").classList.add("hidden")
+          document.getElementById("form-4").classList.remove("hidden")
+      }
+    }
+
+    nextFormButton.addEventListener("click", () => {
+      if (currentForm < 3)
+        currentForm += 1;
+      switchForms()
+    })
+    previousFormButton.addEventListener("click", () => {
+      if (currentForm > 0)
+        currentForm -= 1;
+      switchForms()
+    })
+
+  </script>
 </body>
 
 </html>
