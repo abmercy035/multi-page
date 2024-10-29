@@ -167,13 +167,11 @@
 
       .form-container-body .forms {
         display: flex;
-      }
-
-      .form-container-body .forms {
         width: 100%;
         height: 100%;
         flex-direction: column;
         gap: 30px;
+
 
         .form-header {
           display: flex;
@@ -195,9 +193,15 @@
 
         .form-body {
           display: flex;
-          flex-direction: column;
           gap: 15px;
-          height: 100%;
+          min-height: min-content;
+
+        }
+      }
+
+      #form-1 {
+        .form-body {
+          flex-direction: column;
 
           .form-input-group {
             display: flex;
@@ -230,6 +234,339 @@
             }
           }
         }
+      }
+
+      #form-2 .form-body {
+        gap: 30px;
+      }
+
+      #form-2 {
+        .form-plan-group {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          border-radius: 10px;
+          height: max-content;
+          gap: 40px;
+          padding: 15px;
+          border: 1px solid var(--neutral-light-gray);
+          cursor: pointer;
+
+          .plan-icon {
+            .form-input {
+              border-radius: 5px;
+              font-size: 16px;
+              font-weight: 700;
+              text-transform: capitalize;
+              color: var(--primary-marine-blue);
+            }
+          }
+
+          .plan-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .plan-name {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--primary-marine-blue);
+            }
+
+            .plan-description {
+              font-size: 14px;
+              font-weight: 400;
+              color: var(--neutral-cool-gray);
+            }
+
+            .plan-bonus-text {
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--primary-marine-blue);
+            }
+          }
+
+        }
+
+        .form-plan-group:is(:hover, :active) {
+          border: 1px solid var(--primary-purplish-blue);
+        }
+
+        .form-footer {
+          display: flex;
+          justify-content: center;
+          background-color: var(--neutral-magnolia);
+          border-radius: 10px;
+          width: 100%;
+        }
+
+        .form-footer-options-container {
+          padding: 15px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: center;
+          font-weight: 500;
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          color: var(--neutral-cool-gray);
+
+          .options {
+            cursor: pointer;
+          }
+
+          .options.active {
+            color: var(--primary-marine-blue);
+            font-weight: 700;
+          }
+
+          .options.toggler {
+            width: 45px;
+            height: 22px;
+            border-radius: 50px;
+            padding: 0px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: var(--primary-marine-blue);
+
+            .toggle-ball {
+              height: 12px;
+              width: 12px;
+              border-radius: 50px;
+              border: red;
+              display: block;
+              background-color: var(--white);
+            }
+          }
+        }
+      }
+
+      #form-3 .form-body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      #form-3 {
+        .form-adds-on-group {
+          display: flex;
+          width: 100%;
+          border-radius: 10px;
+          height: max-content;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          padding: 20px;
+          border: 1px solid var(--neutral-light-gray);
+          cursor: pointer;
+
+          .adds-on-icon.active {
+            background-color: var(--primary-purplish-blue);
+          }
+
+          .adds-on-icon {
+            width: 26px;
+            height: 26px;
+            display: flex;
+            padding: 2px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            border: 1px solid var(--neutral-light-gray);
+
+            .form-input {
+              border-radius: 5px;
+              font-size: 16px;
+              font-weight: 700;
+              text-transform: capitalize;
+              color: var(--primary-marine-blue);
+            }
+          }
+
+          .adds-on-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .adds-on-name {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--primary-marine-blue);
+            }
+
+            .adds-on-description {
+              font-size: 14px;
+              font-weight: 400;
+              color: var(--neutral-cool-gray);
+            }
+
+          }
+
+          .adds-on-price-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-purplish-blue);
+            margin-left: auto;
+          }
+        }
+
+        .form-adds-on-group:is(:hover, :active) {
+          border: 1px solid var(--primary-purplish-blue);
+        }
+
+
+
+
+        .form-footer {
+          display: flex;
+          justify-content: center;
+          background-color: var(--neutral-magnolia);
+          border-radius: 10px;
+          width: 100%;
+        }
+
+        .form-footer-options-container {
+          padding: 15px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: center;
+          font-weight: 500;
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          color: var(--neutral-cool-gray);
+
+          .options {
+            cursor: pointer;
+          }
+
+          .options.active {
+            color: var(--primary-marine-blue);
+            font-weight: 700;
+          }
+
+          .options.toggler {
+            width: 45px;
+            height: 22px;
+            border-radius: 50px;
+            padding: 0px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: var(--primary-marine-blue);
+
+            .toggle-ball {
+              height: 12px;
+              width: 12px;
+              border-radius: 50px;
+              border: red;
+              display: block;
+              background-color: var(--white);
+            }
+          }
+        }
+
+
+      }
+
+
+
+      #form-4 {
+        .form-body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0px;
+          background-color: var(--alabaster);
+          border-radius: 10px;
+        }
+
+        div.form-onfinish-group:first-child {
+          border-bottom: 1px solid var(--neutral-light-gray);
+          padding: 25px 0px;
+
+        }
+
+        div.form-onfinish-group:last-child {
+          padding: 20px 0;
+        }
+
+        .form-onfinish-group {
+          display: flex;
+          width: 85%;
+          height: max-content;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          padding: 10px 0px;
+
+          .onfinish-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .onfinish-name {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--primary-marine-blue);
+            }
+
+            .onfinish-change-plan {
+              cursor: pointer;
+              text-decoration: underline;
+              font-weight: 700;
+            }
+
+            .onfinish-change-plan:hover {
+              color: var(--primary-purplish-blue);
+            }
+
+            .onfinish-description,
+            .onfinish-change-plan {
+              font-size: 14px;
+              color: var(--neutral-cool-gray);
+            }
+
+          }
+
+          .onfinish-price-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-purplish-blue);
+            margin-left: auto;
+          }
+        }
+
+        .form-footer {
+          display: flex;
+          justify-content: space-between;
+          width: 85%;
+          padding: 10px 0px;
+          margin: 0 auto;
+        }
+
+        .form-footer-total-plan {
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--neutral-cool-gray);
+        }
+
+        .form-footer-total-price {
+          font-size: 16px;
+          align-items: center;
+          font-weight: 700;
+          color: var(--primary-purplish-blue);
+        }
+
+
+
       }
 
       .form-container-footer {
@@ -339,6 +676,18 @@
           border-radius: 10px;
         }
       }
+
+      #form-2 .form-body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px !important;
+      }
+
+      #form-2 .form-plan-group {
+        flex-direction: row !important;
+        gap: 20px !important;
+        padding: 20px !important;
+      }
     }
   </style>
 </head>
@@ -403,7 +752,7 @@
     </aside>
     <div class="form-container">
       <div class="form-container-body">
-        <div class="forms" id="form-1">
+        <div class="forms hidden" id="form-1">
           <div class="form-header">
             <div class="form-header-title">
               Personal info
@@ -428,67 +777,146 @@
           </div>
         </div>
         <div class="forms hidden" id="form-2">
+          <div class="form-header">
+            <div class="form-header-title">
+              Select your plan
+            </div>
+            <div class="form-header-description">
+              You have the option of monthly or yearly billing.
+            </div>
+          </div>
+          <div class="form-body">
+            <div class="form-plan-group">
+              <div class="plan-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-arcade.svg">
+              </div>
+              <div class="plan-info">
+                <span class="plan-name">Arcade</span>
+                <span class="plan-description">$9/mo</span>
+                <span class="plan-bonus-text">2 months free</span>
+              </div>
+            </div>
+            <div class="form-plan-group">
+              <div class="plan-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-advanced.svg">
+              </div>
+              <div class="plan-info">
+                <span class="plan-name"> Advanced</span>
+                <span class="plan-description">$12/mo</span>
+                <span class="plan-bonus-text">2 months free</span>
 
-          <!-- Step 2 start -->
+              </div>
+            </div>
+            <div class="form-plan-group">
+              <div class="plan-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-pro.svg">
+              </div>
+              <div class="plan-info">
+                <span class="plan-name"> Pro</span>
+                <span class="plan-description">$15/mo</span>
+                <span class="plan-bonus-text">2 months free</span>
+              </div>
+            </div>
 
-          Select your plan
-          You have the option of monthly or yearly billing.
+          </div>
+          <div class="form-footer">
+            <div class="form-footer-options-container">
+              <div class="options active">Monthly</div>
+              <div class="options toggler">
+                <div class="toggle-ball"></div>
+              </div>
+              <div class="options">Yearly</div>
+            </div>
+          </div>
+        </div>
 
-          Arcade
-          $9/mo
-
-          Advanced
-          $12/mo
-
-          Pro
-          $15/mo
-
-          Monthly
-          Yearly
-
-          Go Back
-          Next Step
-
-          <!-- Step 2 end -->
-
+        <div class="forms hidden" id="form-3">
           <!-- Step 3 start -->
+          <div class="form-header">
+            <div class="form-header-title">
+              Pick add-ons
+            </div>
+            <div class="form-header-description">
+              Add-ons help enhance your gaming experience.
+            </div>
+          </div>
+          <div class="form-body">
+            <div class="form-adds-on-group">
+              <div class="adds-on-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
+              </div>
+              <div class="adds-on-info">
+                <span class="adds-on-name"> Online service</span>
+                <span class="adds-on-description">Access to multiplayer games</span>
+              </div>
+              <span class="adds-on-price-text">+$1/mo</span>
+            </div>
+            <div class="form-adds-on-group">
+              <div class="adds-on-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
+              </div>
+              <div class="adds-on-info">
+                <span class="adds-on-name"> Larger storage</span>
+                <span class="adds-on-description">Extra 1TB of cloud save</span>
+              </div>
+              <span class="adds-on-price-text"> +$2/mo</span>
+            </div>
+            <div class="form-adds-on-group">
+              <div class="adds-on-icon">
+                <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
+              </div>
+              <div class="adds-on-info">
+                <span class="adds-on-name">Customizable Profile</span>
+                <span class="adds-on-description">Custom theme on your profile</span>
+              </div>
+              <span class="adds-on-price-text">+$2/mo</span>
+            </div>
 
-          Pick add-ons
-          Add-ons help enhance your gaming experience.
-
-          Online service
-          Access to multiplayer games
-          +$1/mo
-
-          Larger storage
-          Extra 1TB of cloud save
-          +$2/mo
-
-          Customizable Profile
-          Custom theme on your profile
-          +$2/mo
-
-          Go Back
-          Next Step
-
+          </div>
           <!-- Step 3 end -->
 
-          <!-- Step 4 start -->
 
-          Finishing up
-          Double-check everything looks OK before confirming.
-
-          <!-- Dynamically add subscription and add-on selections here -->
-
-          Total (per month/year)
-
-          Go Back
-          Confirm
-
-          <!-- Step 4 end -->
-
+        </div>
+        <div class="forms" id="form-4">
+          <!-- Step 3 start -->
+          <div class="form-header">
+            <div class="form-header-title">
+              Finishing up
+            </div>
+            <div class="form-header-description">
+              Double-check everything looks OK before confirming.
+            </div>
+          </div>
+          <div class="form-body">
+            <div class="form-onfinish-group">
+              <div class="onfinish-info">
+                <span class="onfinish-name">Arcade (Monthly)</span>
+                <span class="onfinish-change-plan">Change</span>
+              </div>
+              <span class="onfinish-price-text">+$9/mo</span>
+            </div>
+            <div class="form-onfinish-group">
+              <div class="onfinish-info">
+                <span class="onfinish-description">Online service</span>
+              </div>
+              <span class="onfinish-price-text"> +$1/mo</span>
+            </div>
+            <div class="form-onfinish-group">
+              <div class="onfinish-info">
+                <span class="onfinish-description">Larger storage</span>
+              </div>
+              <span class="onfinish-price-text">+$2/mo</span>
+            </div>
+          </div>
+          <div class="form-footer">
+            <div class="form-footer-total-plan">
+              Total (per month)
+            </div>
+            <div class="form-footer-total-price">$120/yr </div>
+          </div>
+        </div>
+        <div class="forms hidden" id="form-5">
           <!-- Step 5 start -->
-
           Thank you!
 
           Thanks for confirming your subscription! We hope you have fun
@@ -497,8 +925,6 @@
 
           <!-- Step 5 end -->
         </div>
-        <div class="forms hidden" id="form-3"></div>
-        <div class="forms hidden" id="form-4"></div>
       </div>
       <div class="form-container-footer">
         <div class="form-footer-buttons" id="previous-button">Go Back</div>
@@ -518,7 +944,7 @@
       if (currentForm < 1) previousFormButton.style.display = "none"
       else previousFormButton.style.display = "block"
       console.log(sidebarItems)
-      sidebarItems.forEach((item, index) => {
+      currentForm < 4 && sidebarItems.forEach((item, index) => {
         if (index === currentForm) {
           item.classList.add("active")
         } else {
@@ -531,29 +957,40 @@
           document.getElementById("form-2").classList.add("hidden")
           document.getElementById("form-3").classList.add("hidden")
           document.getElementById("form-4").classList.add("hidden")
+          document.getElementById("form-5").classList.add("hidden")
           break;
         case 1:
           document.getElementById("form-1").classList.add("hidden")
           document.getElementById("form-2").classList.remove("hidden")
           document.getElementById("form-3").classList.add("hidden")
           document.getElementById("form-4").classList.add("hidden")
+          document.getElementById("form-5").classList.add("hidden")
           break;
         case 2:
           document.getElementById("form-1").classList.add("hidden")
           document.getElementById("form-2").classList.add("hidden")
           document.getElementById("form-3").classList.remove("hidden")
           document.getElementById("form-4").classList.add("hidden")
+          document.getElementById("form-5").classList.add("hidden")
           break;
         case 3:
           document.getElementById("form-1").classList.add("hidden")
           document.getElementById("form-2").classList.add("hidden")
           document.getElementById("form-3").classList.add("hidden")
           document.getElementById("form-4").classList.remove("hidden")
+          document.getElementById("form-5").classList.add("hidden")
+          break;
+        default:
+          document.getElementById("form-1").classList.add("hidden")
+          document.getElementById("form-2").classList.add("hidden")
+          document.getElementById("form-3").classList.add("hidden")
+          document.getElementById("form-4").classList.add("hidden")
+          document.getElementById("form-5").classList.remove("hidden")
       }
     }
 
     nextFormButton.addEventListener("click", () => {
-      if (currentForm < 3)
+      if (currentForm < 4)
         currentForm += 1;
       switchForms()
     })

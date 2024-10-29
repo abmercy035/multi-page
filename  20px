@@ -1,0 +1,15 @@
+[33mcommit c42922a3a2dbe87a38e7dba11550c39fce096b1a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Abraham Samuel {JavaScript Enthusiast} <abmercy035@gmail.com>
+Date:   Tue Oct 29 15:29:57 2024 +0100
+
+    Feat/Design
+    
+    Made the design responsive to mobile and destop
+    
+    Added the Form step toggle function
+
+[33mcommit 405c24c57bc76da5777e20e0996642b847b03125[m
+Author: Abraham Samuel {JavaScript Enthusiast} <abmercy035@gmail.com>
+Date:   Tue Oct 29 12:32:01 2024 +0100
+
+    desgined the destop sidebar view
