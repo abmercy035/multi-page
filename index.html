@@ -367,7 +367,7 @@
           height: max-content;
           flex-direction: row;
           align-items: center;
-          gap: 20px;
+          gap: 10px;
           padding: 20px;
           border: 1px solid var(--neutral-light-gray);
           cursor: pointer;
@@ -375,8 +375,8 @@
 
 
           .adds-on-icon {
-            width: 26px;
-            height: 26px;
+            width: 25px;
+            height: 25px;
             display: flex;
             padding: 2px;
             align-items: center;
@@ -1155,8 +1155,7 @@
             else detailsFilled += 1;
           });
         }
-
-        if (detailsFilled >= 3) {
+        if (detailsFilled >= 3 || currentForm > 0) {
           detailsFilled = 0;
           currentForm += 1; // Increment currentForm only if all details are filled
         }
