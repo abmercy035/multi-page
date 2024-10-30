@@ -1016,6 +1016,7 @@
     const onfinishForm = document.querySelector("#form-4 .form-body .adds-on-list")
     const formFooterTotalPlan = document.querySelector(".form-footer-total-plan")
     const formFooterTotalPrice = document.querySelector(".form-footer-total-price")
+    const onfinishChangePlan = document.querySelector(".onfinish-change-plan")
     const toggler = document.querySelector(".toggler")
     const monthlyPlanPrice = [9, 12, 15];
     const monthlyaddsOnPrice = [1, 2, 2];
@@ -1137,8 +1138,18 @@
       }
     }
 
+    onfinishChangePlan.addEventListener("click", () => {
+      currentForm = 1;
+      switchForms()
+      onfinishForm.innerHTML = ""
+      formFooterTotalPrice.innerHTML = 0
+      selectedaddsOnGroupType.clear()
+      selectedaddsOnGroupType.add("total")
+      formAddsOnGroup.forEach((addsOnGroup, index) => {
+        addsOnGroup.classList.remove("active")
+      })
+    })
     nextFormButton.addEventListener("click", () => {
-
       if (currentForm < 4) {
         if (currentForm == 0) {
           Array.from(formLabel).forEach((item) => {
