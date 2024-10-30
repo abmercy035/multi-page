@@ -1024,7 +1024,7 @@
     const yearlyPlanPrice = [90, 120, 150];
     const yearlyaddsOnPrice = [10, 20, 20];
     const PlanLists = ["Arcade", "Advance", "Pro"];
-    var detailsFilled = false;
+    var detailsFilled = 0;
     var monthly = true;
     var selectedPlanGroupType = 0;
     var selectedaddsOnGroupType = new Set(["total"]);
@@ -1144,18 +1144,20 @@
       if (currentForm < 4) {
         if (currentForm == 0) {
           Array.from(formLabel).forEach((item) => {
-            detailsFilled = true;
-            if ((item.nextElementSibling.value).trim === "") {
+            if ((item.nextElementSibling.value).trim() === "") {
               item.childNodes[1].innerHTML = "This field is required";
               setTimeout(() => {
                 item.childNodes[1].innerHTML = "";
               }, 4000);
-              detailsFilled = false; // Set to false when a field is empty
+              return detailsFilled = 0;
+
             }
+            else detailsFilled += 1;
           });
         }
 
-        if (detailsFilled) {
+        if (detailsFilled >= 3) {
+          detailsFilled = 0;
           currentForm += 1; // Increment currentForm only if all details are filled
         }
       }
