@@ -212,6 +212,14 @@
               font-size: 14px;
               font-weight: 500;
               color: var(--primary-marine-blue);
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+
+              .form-label-error {
+                color: var(--primary-strawberry-red);
+                font-weight: 700;
+              }
             }
 
             .form-input {
@@ -288,7 +296,7 @@
 
         }
 
-        .form-plan-group:is(:hover, :active) {
+        .form-plan-group:is(:hover, .active) {
           border: 1px solid var(--primary-purplish-blue);
         }
 
@@ -364,9 +372,7 @@
           border: 1px solid var(--neutral-light-gray);
           cursor: pointer;
 
-          .adds-on-icon.active {
-            background-color: var(--primary-purplish-blue);
-          }
+
 
           .adds-on-icon {
             width: 26px;
@@ -414,12 +420,13 @@
           }
         }
 
-        .form-adds-on-group:is(:hover, :active) {
+        .form-adds-on-group:is(:hover, .active) {
           border: 1px solid var(--primary-purplish-blue);
         }
 
-
-
+        .form-adds-on-group.active .adds-on-icon {
+          background-color: var(--primary-purplish-blue);
+        }
 
         .form-footer {
           display: flex;
@@ -479,8 +486,11 @@
 
 
       #form-4 {
-        .form-body {
+
+        .form-body,
+        .adds-on-list {
           display: flex;
+          width: 100%;
           flex-direction: column;
           align-items: center;
           gap: 0px;
@@ -488,14 +498,14 @@
           border-radius: 10px;
         }
 
-        div.form-onfinish-group:first-child {
+        .form-body>.form-onfinish-group:first-child {
           border-bottom: 1px solid var(--neutral-light-gray);
           padding: 25px 0px;
 
         }
 
-        div.form-onfinish-group:last-child {
-          padding: 20px 0;
+        .adds-on-list .form-onfinish-group:last-child {
+          padding: 10px 0 20px 0;
         }
 
         .form-onfinish-group {
@@ -608,6 +618,67 @@
 
     .hidden {
       display: none !important;
+    }
+
+    #form-5 .form-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #form-5 {
+      .form-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 0px;
+        border-radius: 10px;
+
+        .form-finished-group {
+          display: flex;
+          width: 100%;
+          height: max-content;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          padding: 10px 0px;
+
+          .finished-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 100%;
+
+            .finished-icon {
+              font-size: 16px;
+              font-weight: 700;
+              color: var(--primary-marine-blue);
+            }
+
+            .finished-icon input {
+              width: 80px;
+              height: 80px;
+            }
+
+            .finished-title {
+              font-size: 24px;
+              font-weight: 700;
+              color: var(--primary-marine-blue);
+            }
+
+            .finished-text {
+              font-size: 16px;
+              line-height: 1.6;
+              text-align: center;
+              color: var(--neutral-cool-gray);
+            }
+          }
+        }
+      }
     }
 
     @media screen and (max-width: 675px) {
@@ -752,7 +823,7 @@
     </aside>
     <div class="form-container">
       <div class="form-container-body">
-        <div class="forms hidden" id="form-1">
+        <div class="forms" id="form-1">
           <div class="form-header">
             <div class="form-header-title">
               Personal info
@@ -763,15 +834,18 @@
           </div>
           <div class="form-body">
             <div class="form-input-group">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Name
+                <span class="form-label-error"></span></label>
               <input type="text" class="form-input" id="name" placeholder="e.g. Stephen King">
             </div>
             <div class="form-input-group">
-              <label for="email" class="form-label">Email Address</label>
+              <label for="email" class="form-label">Email Address <span class="form-label-error"></span></label>
               <input type="text" class="form-input" id="email" placeholder="e.g. stephenking@lorem.com">
             </div>
             <div class="form-input-group">
-              <label for="mobile" class="form-label">Phone Number</label>
+              <label for="mobile" class="form-label">Phone Number
+                <span class="form-label-error"></span>
+              </label>
               <input type="text" class="form-input" id="mobile" placeholder="e.g. +1 234 567 890">
             </div>
           </div>
@@ -786,35 +860,35 @@
             </div>
           </div>
           <div class="form-body">
-            <div class="form-plan-group">
+            <div class="form-plan-group active" data-plan-type=0>
               <div class="plan-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-arcade.svg">
               </div>
-              <div class="plan-info">
+              <div class="plan-info active">
                 <span class="plan-name">Arcade</span>
                 <span class="plan-description">$9/mo</span>
-                <span class="plan-bonus-text">2 months free</span>
+                <span class="plan-bonus-text hidden">2 months free</span>
               </div>
             </div>
-            <div class="form-plan-group">
+            <div class="form-plan-group" data-plan-type=1>
               <div class="plan-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-advanced.svg">
               </div>
               <div class="plan-info">
                 <span class="plan-name"> Advanced</span>
                 <span class="plan-description">$12/mo</span>
-                <span class="plan-bonus-text">2 months free</span>
+                <span class="plan-bonus-text hidden">2 months free</span>
 
               </div>
             </div>
-            <div class="form-plan-group">
+            <div class="form-plan-group" data-plan-type=2>
               <div class="plan-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-pro.svg">
               </div>
               <div class="plan-info">
                 <span class="plan-name"> Pro</span>
                 <span class="plan-description">$15/mo</span>
-                <span class="plan-bonus-text">2 months free</span>
+                <span class="plan-bonus-text hidden">2 months free</span>
               </div>
             </div>
 
@@ -829,9 +903,7 @@
             </div>
           </div>
         </div>
-
         <div class="forms hidden" id="form-3">
-          <!-- Step 3 start -->
           <div class="form-header">
             <div class="form-header-title">
               Pick add-ons
@@ -841,7 +913,7 @@
             </div>
           </div>
           <div class="form-body">
-            <div class="form-adds-on-group">
+            <div class="form-adds-on-group" data-adds-on-type="Online service">
               <div class="adds-on-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
               </div>
@@ -851,7 +923,7 @@
               </div>
               <span class="adds-on-price-text">+$1/mo</span>
             </div>
-            <div class="form-adds-on-group">
+            <div class="form-adds-on-group" data-adds-on-type="Larger storage">
               <div class="adds-on-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
               </div>
@@ -861,7 +933,7 @@
               </div>
               <span class="adds-on-price-text"> +$2/mo</span>
             </div>
-            <div class="form-adds-on-group">
+            <div class="form-adds-on-group" data-adds-on-type="Customizable Profile">
               <div class="adds-on-icon">
                 <input type="image" class="form-input" id="name" src="assets/images/icon-checkmark.svg">
               </div>
@@ -877,7 +949,7 @@
 
 
         </div>
-        <div class="forms" id="form-4">
+        <div class="forms hidden" id="form-4">
           <!-- Step 3 start -->
           <div class="form-header">
             <div class="form-header-title">
@@ -893,37 +965,32 @@
                 <span class="onfinish-name">Arcade (Monthly)</span>
                 <span class="onfinish-change-plan">Change</span>
               </div>
-              <span class="onfinish-price-text">+$9/mo</span>
+              <span class="onfinish-price-text plan-price">+$9/mo</span>
             </div>
-            <div class="form-onfinish-group">
-              <div class="onfinish-info">
-                <span class="onfinish-description">Online service</span>
-              </div>
-              <span class="onfinish-price-text"> +$1/mo</span>
-            </div>
-            <div class="form-onfinish-group">
-              <div class="onfinish-info">
-                <span class="onfinish-description">Larger storage</span>
-              </div>
-              <span class="onfinish-price-text">+$2/mo</span>
+            <div class="adds-on-list">
             </div>
           </div>
           <div class="form-footer">
             <div class="form-footer-total-plan">
               Total (per month)
             </div>
-            <div class="form-footer-total-price">$120/yr </div>
+            <div class="form-footer-total-price"></div>
           </div>
         </div>
         <div class="forms hidden" id="form-5">
-          <!-- Step 5 start -->
-          Thank you!
-
-          Thanks for confirming your subscription! We hope you have fun
-          using our platform. If you ever need support, please feel free
-          to email us at support@loremgaming.com.
-
-          <!-- Step 5 end -->
+          <div class="form-body">
+            <div class="form-finished-group">
+              <div class="finished-info">
+                <div class="finished-icon">
+                  <input type="image" class="form-input" id="name" src="assets/images/icon-thank-you.svg">
+                </div>
+                <span class="finished-title">Thank you!</span>
+                <span class="finished-text">Thanks for confirming your subscription! We hope you have fun
+                  using our platform. If you ever need support, please feel free
+                  to email us at support@loremgaming.com.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-container-footer">
@@ -937,13 +1004,96 @@
   <script defer async>
     var currentForm = 0;
     const sidebarItems = document.querySelectorAll(".sidebar-items")
+    const formLabel = document.getElementsByClassName("form-label")
+    const planDescription = document.querySelectorAll(".plan-description")
+    const planBonusText = document.querySelectorAll(".plan-bonus-text")
+    const addsOnPriceText = document.querySelectorAll(".adds-on-price-text")
     const nextFormButton = document.getElementById("next-button")
     const previousFormButton = document.getElementById("previous-button")
+    const formContainerFooter = document.querySelector(".form-container-footer")
+    const formPlanGroup = document.querySelectorAll(".form-plan-group")
+    const formAddsOnGroup = document.querySelectorAll(".form-adds-on-group")
+    const onfinishName = document.querySelector(".onfinish-name")
+    const onfinishPlanPrice = document.querySelector(".plan-price")
+    const onfinishForm = document.querySelector("#form-4 .form-body .adds-on-list")
+    const formFooterTotalPlan = document.querySelector(".form-footer-total-plan")
+    const formFooterTotalPrice = document.querySelector(".form-footer-total-price")
+    const toggler = document.querySelector(".toggler")
+    const monthlyPlanPrice = [9, 12, 15];
+    const monthlyaddsOnPrice = [1, 2, 2];
+    const yearlyPlanPrice = [90, 120, 150];
+    const yearlyaddsOnPrice = [10, 20, 20];
+    const PlanLists = ["Arcade", "Advance", "Pro"];
+    var detailsFilled = false;
+    var monthly = true;
+    var selectedPlanGroupType = 0;
+    var selectedaddsOnGroupType = new Set(["total"]);
+    const selectedaddsOnGroupPrices = new Map();
+    const FormDataSet = [];
+    console.log(formPlanGroup)
+
+    formAddsOnGroup.forEach((addsOnGroup, index) => {
+      addsOnGroup.addEventListener("click", () => {
+        if (selectedaddsOnGroupType.has(addsOnGroup.getAttribute("data-adds-on-type"))) {
+          selectedaddsOnGroupType.delete(addsOnGroup.getAttribute("data-adds-on-type"))
+          selectedaddsOnGroupPrices.delete(addsOnGroup.getAttribute("data-adds-on-type"))
+          addsOnGroup.classList.remove("active")
+        }
+        else {
+          selectedaddsOnGroupType.add(addsOnGroup.getAttribute("data-adds-on-type"))
+          selectedaddsOnGroupPrices.set(addsOnGroup.getAttribute("data-adds-on-type"), monthly ? monthlyaddsOnPrice[index] : yearlyaddsOnPrice[index])
+          addsOnGroup.classList.add("active")
+        }
+        formAddsOnGroup.forEach((addsOnGroup, index) => {
+          if (selectedaddsOnGroupType.has(addsOnGroup.getAttribute("data-adds-on-type"))) {
+            addsOnGroup.classList.add("active")
+          }
+          else {
+            addsOnGroup.classList.remove("active")
+          }
+
+        })
+      })
+    })
+    formPlanGroup.forEach((planGroup, index) => {
+      planGroup.addEventListener("click", () => {
+        selectedPlanGroupType = planGroup.getAttribute("data-plan-type");
+        formPlanGroup.forEach((planGroup, index) => {
+          if (index === Number(selectedPlanGroupType)) {
+            planGroup.classList.add("active")
+            selectedaddsOnGroupPrices.set("total", monthly ? monthlyPlanPrice[index] : yearlyPlanPrice[index])
+          }
+          else {
+            planGroup.classList.remove("active")
+          }
+        })
+      })
+    })
+
+    toggler.addEventListener("click", () => {
+      monthly = !monthly
+      planDescription.forEach((plan, index) => {
+        if (monthly) {
+          plan.innerHTML = `$${monthlyPlanPrice[index]}/mo`
+          addsOnPriceText[index].innerHTML = `$${monthlyaddsOnPrice[index]}/mo`
+          planBonusText.forEach(text => text.classList.add("hidden"))
+        }
+        else {
+          plan.innerHTML = `$${yearlyPlanPrice[index]}/yr`
+          addsOnPriceText[index].innerHTML = `$${yearlyaddsOnPrice[index]}/yr`
+          planBonusText.forEach(text => text.classList.remove("hidden"))
+        }
+        selectedaddsOnGroupPrices.set("total", monthly ? monthlyPlanPrice[selectedPlanGroupType] : yearlyPlanPrice[selectedPlanGroupType])
+
+      })
+      if (!monthly)
+        return toggler.style.justifyContent = "flex-end"
+      toggler.style.justifyContent = "flex-start"
+    })
     if (currentForm < 1) previousFormButton.style.display = "none"
     const switchForms = () => {
       if (currentForm < 1) previousFormButton.style.display = "none"
       else previousFormButton.style.display = "block"
-      console.log(sidebarItems)
       currentForm < 4 && sidebarItems.forEach((item, index) => {
         if (index === currentForm) {
           item.classList.add("active")
@@ -990,14 +1140,61 @@
     }
 
     nextFormButton.addEventListener("click", () => {
-      if (currentForm < 4)
-        currentForm += 1;
+
+      if (currentForm < 4) {
+        if (currentForm == 0) {
+          Array.from(formLabel).forEach((item) => {
+            detailsFilled = true;
+            if ((item.nextElementSibling.value).trim === "") {
+              item.childNodes[1].innerHTML = "This field is required";
+              setTimeout(() => {
+                item.childNodes[1].innerHTML = "";
+              }, 4000);
+              detailsFilled = false; // Set to false when a field is empty
+            }
+          });
+        }
+
+        if (detailsFilled) {
+          currentForm += 1; // Increment currentForm only if all details are filled
+        }
+      }
+      if (currentForm > 3) formContainerFooter.style.display = "none";
+      if (currentForm >= 3) {
+        onfinishName.innerHTML = `${PlanLists[selectedPlanGroupType]} ${monthly ? "(Monthly)" : "(Yearly)"}`
+        onfinishPlanPrice.innerHTML = `$${monthly ? `${monthlyPlanPrice[selectedPlanGroupType]}/mo` : `${yearlyPlanPrice[selectedPlanGroupType]}/yr`}`
+        if (selectedaddsOnGroupType.size > 0) {
+          var selectedaddsOnGroupPricesList =
+            selectedaddsOnGroupPrices.entries();
+          selectedaddsOnGroupType.forEach((value, index, wa) => {
+            let newDiv = document.createElement("div");
+            if (value !== "total") {
+              newDiv.className = "form-onfinish-group";
+              newDiv.innerHTML = `<div class="onfinish-info">
+            <span class="onfinish-description">${value}</span></div><span class="onfinish-price-text">+$${selectedaddsOnGroupPrices.get((index))}/${monthly ? "mo" : "yr"}</span>`
+            }
+            formFooterTotalPrice.innerHTML = Number(formFooterTotalPrice.innerHTML) + Number(selectedaddsOnGroupPrices.get((index)))
+            onfinishForm.appendChild(newDiv)
+          })
+          formFooterTotalPrice.innerHTML = `$${formFooterTotalPrice.innerHTML}/${monthly ? "mo" : "yr"}`
+        }
+      }
       switchForms()
     })
     previousFormButton.addEventListener("click", () => {
       if (currentForm > 0)
         currentForm -= 1;
       switchForms()
+      onfinishForm.innerHTML = ""
+      formFooterTotalPrice.innerHTML = 0
+
+      if (currentForm < 2) {
+        selectedaddsOnGroupType.clear()
+        selectedaddsOnGroupType.add("total")
+        formAddsOnGroup.forEach((addsOnGroup, index) => {
+          addsOnGroup.classList.remove("active")
+        })
+      }
     })
 
   </script>
