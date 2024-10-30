@@ -1028,7 +1028,7 @@
     var monthly = true;
     var selectedPlanGroupType = 0;
     var selectedaddsOnGroupType = new Set(["total"]);
-    const selectedaddsOnGroupPrices = new Map();
+    const selectedaddsOnGroupPrices = new Map([["total", 9]]);
     const FormDataSet = [];
     console.log(formPlanGroup)
 
@@ -1177,7 +1177,7 @@
             formFooterTotalPrice.innerHTML = Number(formFooterTotalPrice.innerHTML) + Number(selectedaddsOnGroupPrices.get((index)))
             onfinishForm.appendChild(newDiv)
           })
-          formFooterTotalPrice.innerHTML = `$${formFooterTotalPrice.innerHTML}/${monthly ? "mo" : "yr"}`
+          formFooterTotalPrice.innerHTML = `$${Number(formFooterTotalPrice.innerHTML)}/${monthly ? "mo" : "yr"}`
         }
       }
       switchForms()
